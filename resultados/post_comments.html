@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>POST</title>
+    </head>
+    <body>
+        <h3>Llene el siguiente formulario para crear su recurso para "comments":</h3>
+        <form action="" id="formulario">
+            <table>
+                <tr>
+                    <td style="width: 160px;">ID de la publicación:</td>
+                    <td><input type="number" name="postId" id="postId" min="0" max="100" maxlength="3" /></td>
+                </tr>
+                <tr>
+                    <td>Nombre:</td>
+                    <td><input type="text" name="name" id="name" size="30" /></td>
+                </tr>
+                <tr>
+                    <td>Correo:</td>
+                    <td><input type="email" name="email" id="email" size="30" /></td>
+                </tr>
+                <tr>
+                    <td>Cuerpo del comentario:</td>
+                    <td><textarea name="body" id="body" cols="35" rows="5"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><button type="submit">Crear</button></td>
+                </tr>
+            </table>
+        </form>
+        <!-- Contenedor que recibirá el contenido del script -->
+        <div id="contenedor"></div>
+        <!-- Enlaza el script a este documento. -->
+        <script src="/methods/post.js"></script>
+    </body>
+</html>

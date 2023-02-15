@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PUT</title>
+    </head>
+    <body>
+        <h3>Modifique los campos del formulario para actualizar el recurso de "photos":</h3>
+        <form action="" id="formulario">
+            <table>
+                <tr>
+                    <td style="width: 160px;">ID del álbum:</td>
+                    <td><input type="number" name="albumId" id="albumId" min="0" max="100" maxlength="3" /></td>
+                </tr>
+                <tr>
+                    <td>Título:</td>
+                    <td><input type="text" name="title" id="title" size="30" /></td>
+                </tr>
+                <tr>
+                    <td>URL:</td>
+                    <td><input type="url" name="url" id="url" size="30" /></td>
+                </tr>
+                <tr>
+                    <td>URL de la miniatura:</td>
+                    <td><input type="url" name="thumbnailURL" id="thumbnailURL" size="30" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><button type="submit">Actualizar</button></td>
+                </tr>
+            </table>
+        </form>
+        <p><i>Nota</i>: si solo requiere modificar uno o algunos de los campos del recurso de la API, mantenga el resto de campos como están</p>
+        <!-- Contenedor que recibirá el contenido del script -->
+        <div id="contenedor"></div>
+        <!-- Enlaza el script a este documento. -->
+        <script src="/methods/put.js"></script>
+    </body>
+</html>

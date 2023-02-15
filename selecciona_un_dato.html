@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Recursos</title>
+    </head>
+    <body>
+        <h3>Selecciona el dato que desees actualizar o eliminar dando clic:</h3>
+        <!-- Contenedor que recibirá el contenido del script -->
+        <div id="contenedor"></div>
+        <!-- Script que muestra la llave y valor de un Endpoint de la API para seleccionar. -->
+        <script>
+            // Constante para manipular el div "contenedor".
+            const aplicacion = document.querySelector("#contenedor");
+            // Constante con la URL de la API.
+            const API_URL = "https://jsonplaceholder.typicode.com";
+            // Obtiene los parámetros posteriores al carácter "?" en la URL del sitio web.
+            const getURL = new URLSearchParams(window.location.search);
+            // Obtiene los parámetros "id" y metodo".
+            const end = getURL.get("end");
+            const metodo = getURL.get("metodo");
+
+            // Crea nodos "ol" vacíos.
+            const ol = document.createElement("ol");
+
+            // Método que obtiene los resultados del Endpoint.
+            fetch(`${API_URL}/${end}`)
+                .then((respuesta) => { return respuesta.json() })
+                .then((datos) => {
+                    datos.forEach(elementos => {
+                    // Crea un nodo "li" vacío.
+                    const li = document.createElement("li");
+                    // Añade atributo "id" al nodo li.
+                    li.setAttribute("id", elementos.id);
+                    // Variables para mostrar en los elementos de la lista.
+                    let propiedad = Object.keys(elementos)[2];
+                    let valor = Object.values(elementos)[2];
+                    // Añade los elementos del arreglo al nodo li.
+                    li.appendChild(document.createTextNode(`${propiedad} - ${valor}`));
+                    // Añade evento "click" al nodo li.
+                    li.addEventListener("click", function() {
+                        if (metodo == "put") {
+                            // Redirige a la actualización del recurso con los parámetros "end", "id" y "metodo".
+                            window.location.href = `./resultados/put_${end}.html?end=${end}&metodo=${metodo}&id=${li.id}`
+                        } else {
+                            // Redirige a la eliminación del recurso con los parámetros "end", "id" y "metodo".
+                            window.location.href = `./resultados/delete.html?end=${end}&metodo=${metodo}&id=${li.id}`
+                        }
+                    })
+                    // Añade al nodo ul el nodo li.
+                    ol.appendChild(li);
+                    });
+                })
+                .catch((error) => console.log(error));
+            // Añade al DOM el nodo ul.
+            aplicacion.appendChild(ol);
+        </script>
+    </body>
+</html>

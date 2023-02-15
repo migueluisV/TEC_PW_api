@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Opciones</title>
+    </head>
+    <body>
+        <h3>Selecciona una opción dando clic:</h3>
+        <form action="" id="formulario">
+            <input type="radio" name="ops" id="ops_todos" value="1" onclick="deshabilitar()" /><label for="ops_todos">Mostrar todos los recursos.</label>
+            <br/>
+            <input type="radio" name="ops" id="ops_id" value="2" onclick="habilitar()" /><label for="ops_id">Buscar por Id.</label>
+            <br/><br/>
+            <label for="id">Id: </label><input type="number" name="id" id="id" min="0" disabled>
+            <br/><br/>
+            <button type="button" id="prueba" onclick="redireccion()">Obtener</button>
+            <script>
+                // Constante con la URL de la API.
+                const API_URL = "https://jsonplaceholder.typicode.com";
+                // Obtiene los parámetros posteriores al carácter "?" en la URL del sitio web.
+                const getURL = new URLSearchParams(window.location.search);
+                // Obtiene los parámetros "id" y metodo".
+                const end = getURL.get("end");
+                const metodo = getURL.get("metodo");
+                
+                // Método que obtiene los resultados del Endpoint.
+                fetch(`${API_URL}/${end}`)
+                    .then(response => response.json())
+                    .then(datos => {
+                        const id = document.getElementById("id");
+                        id.setAttribute("max", datos.length);
+                    })
+                    .catch((error) => console.log(error));
+
+                function habilitar() {
+                    const act = document.getElementById("id");
+                    act.disabled = false;
+                }
+                function deshabilitar() {
+                    const act = document.getElementById("id");
+                    act.disabled = true;
+                    act.value="";
+                }
+                function redireccion() {
+                    let ruta;
+
+                    if (document.getElementById("ops_id").checked == true) {
+                        const id = document.getElementById("id").value;
+                        ruta = `./resultados/get.html?end=${end}&metodo=${metodo}&id=${id}`;
+                    }
+                    else {
+                        ruta = `./resultados/get.html?end=${end}&metodo=${metodo}`;
+                    }
+
+                    window.location.href = ruta;
+                }
+            </script>
+        </form>
+    </body>
+</html>

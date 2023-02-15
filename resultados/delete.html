@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DELETE</title>
+    </head>
+    <body>
+        <!-- Contenedor que avisará al usuario que se eliminará un recurso. -->
+        <div id="aviso"></div>
+        <!-- Botón para eliminar el recurso. -->
+        <button type="button" name="btnEliminar" value="true" onclick="eliminar()">Eliminar</button>
+        <!-- Contenedor que avisará al usuario que se ha eliminado un recurso. -->
+        <div id="contenedor"></div>
+        <!-- Script elimina el recurso seleccionado. -->
+        <script>
+            // Constante para manipular el div "contenedor".
+            const aplicacion = document.querySelector("#contenedor");
+            // Constante para manipular el div "aviso".
+            const aviso = document.querySelector("#aviso");
+            // Constante con la URL de la API.
+            const API_URL = "https://jsonplaceholder.typicode.com";
+            // Obtiene los parámetros posteriores al carácter "?" en la URL del sitio web.
+            const getURL = new URLSearchParams(window.location.search);
+            // Obtiene los parámetros "end" y "id".
+            const end = getURL.get("end");
+            const id = getURL.get("id");
+
+            // Crea nodos "h3" y "h4" vacíos.
+            const h3 = document.createElement("h3");
+            const h4 = document.createElement("h4");
+            // Añade texto informativo a los nodos h3 y h4.
+            h3.appendChild(document.createTextNode(`Se eliminará el recurso con Id: ${id}.`));
+            h4.appendChild(document.createTextNode("¿Está de acuerdo?"));
+            // Añade los nodos h4 y p al contenedor "aviso".
+            aviso.appendChild(h3);
+            aviso.appendChild(h4);
+
+            function eliminar() {
+                // Crea nodo "p" vacío.
+                const p = document.createElement("p");
+                // Añade texto informativo al nodo p.
+                p.appendChild(document.createTextNode("Se ha eliminado el recurso."))
+
+                // Método que envia a la URL de la API la opción con el método "DELETE".
+                fetch(`${API_URL}/${end}/${id}`, {
+                    method: "DELETE",
+                })
+                    .catch((error) => console.log(error));
+                // Añade al contenedor "contenedor" el nodo p.
+                aplicacion.appendChild(p);
+            }
+        </script>
+    </body>
+</html>

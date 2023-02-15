@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JSONPlaceholder API</title>
+    </head>
+    <body>
+        <h1>Practicando con <a href="https://jsonplaceholder.typicode.com/" target="_blank">JSON Placeholder</a>.</h1>
+        <h3>Selecciona el método que deseas utilizar dando clic:</h3>
+        <!-- Contenedor que recibirá el contenido del script -->
+        <div id="contenedor"></div>
+        <!-- Script que muestra el menú de métodos de la API. -->
+        <script>
+            // Variable para ciclo for.
+            let i;
+            
+            // Constante para manipular el div "contenedor".
+            const aplicacion = document.querySelector("#contenedor");
+            // Arreglo con los métodos de la API.
+            const metodos = new Array("get", "post", "put", "delete");
+            // Crea un nodo "ol" vacío.
+            const ol = document.createElement("ol");
+
+            // Ciclo para desplegar la lista de métodos disponibles.
+            for (i = 0; i < metodos.length; i++) {
+                // Crea un nodo "li" vacío.
+                const li = document.createElement("li");
+                // Añade atributo "id" al nodo li.
+                li.setAttribute("id", metodos[i]);
+                // Añade los elementos del arreglo al nodo li.
+                li.appendChild(document.createTextNode(metodos[i].toUpperCase() + "."));
+                // Añade evento "click" al nodo li.
+                li.addEventListener("click", function() {
+                    // Redirige a la página "selecciona_un_endpoint.html" con el parámetro "metodo".
+                    window.location.href = `./selecciona_un_endpoint.html?metodo=${li.id}`
+                });
+                // Añade al nodo ol el nodo li.
+                ol.appendChild(li);
+            }
+            // Añade al DOM el nodo ol.
+            aplicacion.appendChild(ol);
+        </script>
+    </body>
+</html>

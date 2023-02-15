@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Creando un recurso</title>
+    </head>
+    <body>
+        <h3>Llene el siguiente formulario para crear un recurso en "albums":</h3>
+        <form action="" id="formulario">
+            <table>
+                <tr>
+                    <td style="width: 120px;">ID del usuario:</td>
+                    <td><input type="number" name="userId" id="userId" min="0" max="10" maxlength="2" /></td>
+                </tr>
+                <tr>
+                    <td>Título del álbum:</td>
+                    <td><input type="text" name="title" id="title" size="30" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><button type="submit">Crear</button></td>
+                </tr>
+            </table>
+        </form>
+        <!-- Contenedor que recibirá el contenido del script -->
+        <div id="contenedor"></div>
+        <!-- Enlaza el script a este documento. -->
+        <script src="/methods/post.js"></script>
+    </body>
+</html>

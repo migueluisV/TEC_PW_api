@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUT</title>
+</head>
+    <body>
+        <h3>Modifique los campos del formulario para actualizar el recurso de "users":</h3>
+        <form action="" id="formulario">
+            <table>
+                <tr>
+                    <td colspan="2" align="center"><b>Datos del usuario</b></td>
+                </tr>
+                <tr>
+                    <td style="width: 160px;">Nombre:</td>
+                    <td><input type="text" name="name" id="name" size="30" /></td>
+                </tr>
+                <tr>
+                    <td>Nombre de usuario:</td>
+                    <td><input type="text" name="username" id="username" size="30" /></td>
+                </tr>
+                <tr>
+                    <td>Correo:</td>
+                    <td><input type="email" name="email" id="email" size="30" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><b>Dirección</b></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;Calle:</td>
+                    <td><input type="text" name="street" id="street" size="30" /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;Número exterior:</td>
+                    <td><input type="text" name="suite" id="suite" size="30" /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;Ciudad:</td>
+                    <td><input type="text" name="city" id="city" size="30" /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;Código postal:</td>
+                    <td><input type="text" name="zipcode" id="zipcode" size="30" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><b>Geolocalización</b></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;Latitud:</td>
+                    <td><input type="text" name="lat" id="lat" size="30" /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;Longitud:</td>
+                    <td><input type="text" name="lng" id="lng" size="30" /></td>
+                </tr>
+                <tr>
+                    <td>Número de teléfono:</td>
+                    <td><input type="tel" name="phone" id="phone" size="30" /></td>
+                </tr>
+                <tr>
+                    <td>Sitio web:</td>
+                    <td><input type="url" name="website" id="website" size="30" /></td>
+                </tr>
+                    <td colspan="2" align="center"><b>Compañia</b></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;Nombre:</td>
+                    <td><input type="text" name="company_name" id="company_name" size="30" /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;Eslogan:</td>
+                    <td><input type="text" name="catchPhrase" id="catchPhrase" size="30" /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;&nbsp;Servicio:</td>
+                    <td><input type="text" name="bs" id="bs" size="30" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><button type="submit">Actualizar</button></td>
+                </tr>
+            </table>
+        </form>
+        <p><i>Nota</i>: si solo requiere modificar uno o algunos de los campos del recurso de la API, mantenga el resto de campos como están</p>
+        <!-- Contenedor que recibirá el contenido del script -->
+        <div id="contenedor"></div>
+        <!-- Enlaza el script a este documento. -->
+        <script src="/methods/put_users.js"></script>
+    </body>
+</html>

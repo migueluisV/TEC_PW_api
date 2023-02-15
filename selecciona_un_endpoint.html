@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Endpoints</title>
+    </head>
+    <body>
+        <h3>Selecciona el Endpoint que desees consultar dando clic:</h3>
+        <!-- Contenedor que recibirá el contenido del script -->
+        <div id="contenedor"></div>
+        <!-- Script que muestra los Endpoints de la API para seleccionar. -->
+        <script>
+            // Obtiene los parámetros de la URL del sitio web.
+            const getURL = new URLSearchParams(window.location.search);
+            // Obtiene el valor del parámetro "metodo".
+            let metodo = getURL.get("metodo");
+            
+            // Variable para ciclo for.
+            let i;
+            // Constante para manipular el div "contenedor".
+            const aplicacion = document.querySelector("#contenedor");
+            // Arreglo con los endpoints de la API.
+            const endpoint = new Array("posts", "comments", "albums", "photos", "todos", "users");
+            // Crea un nodo "ol" vacío.
+            const ol = document.createElement("ol");
+
+            // Ciclo para desplegar la lista de métodos disponibles.
+            for (i = 0; i < endpoint.length; i++) {
+                // Crea un nodo "li" vacío.
+                const li = document.createElement("li");
+                // Añade atributo "id" al nodo li.
+                li.setAttribute("id", endpoint[i]);
+                // Añade los elementos del arreglo al nodo li.
+                li.appendChild(document.createTextNode(`/${endpoint[i]}.`));
+                // Añade evento "click" al nodo li.
+                li.addEventListener("click", function() {
+                    // Variable que define la ruta a seguir.
+                    let ruta;
+                    // Asignación de ruta según el método seleccionado antes.
+                    switch (metodo) {
+                        case "get":
+                            ruta = `./get_selecciona_una_op.html`;
+                            break;
+                        case "post":
+                            ruta = `./resultados/${metodo}_${li.id}.html`;
+                            break;
+                        case "put":
+                            ruta = `./selecciona_un_dato.html`
+                            break;
+                        case "delete":
+                            ruta = `./selecciona_un_dato.html`
+                            break;
+                    }
+                    
+                    // Redirige a la página resultante con los parámetros "end" y "metodo".
+                    window.location.href = `${ruta}?end=${li.id}&metodo=${metodo}`
+                });
+                // Añade al nodo ol el nodo li.
+                ol.appendChild(li);
+            }
+            // Añade al DOM el nodo ol.
+            aplicacion.appendChild(ol);
+        </script>
+        <p>
+            <i>Nota</i>: para los métodos <b>POST</b>, <b>PUT</b> y <b>DELETE</b>, no se crean, actualizan ni eliminan datos
+            reales del servidor de la API, simplemente se simula, mediante código real, las acciones anteriormente mencionadas.
+        </p>
+    </body>
+</html>
