@@ -21,8 +21,17 @@
         </table>
         
         <script>
+            // Constante con la URL de la API.
+            const API_URL = "https://jsonplaceholder.typicode.com";
+            // Obtiene los parámetros posteriores al carácter "?" en la URL del sitio web.
+            const getURL = new URLSearchParams(window.location.search);
+            // Obtiene los parámetros "id" y metodo".
+            const end = getURL.get("end");
+            const metodo = getURL.get("metodo");
+            const id = getURL.has("id") ? `/${getURL.get("id")}` : "";
+
             let box = document.getElementById("tabla");
-            let datos= async () => (await fetch("https://jsonplaceholder.typicode.com/photos")).json();
+            let datos= async () => (await fetch(`${API_URL}/${end}${id}`)).json();
             datos().then((res) => {
                     res.forEach((val) => {
                         box.insertAdjacentHTML("beforeend", 
