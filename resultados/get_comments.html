@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="color.css">
+        <title>GET</title>
+    </head>
+    <body>
+        <table>
+                <caption>Comentarios</caption>
+            <tr>
+                    <th>Id del Post</th>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Cuerpo</th>
+                    
+            </tr>
+            <tbody id="tabla"></tbody>
+        </table>
+        
+        <script>
+            let box = document.getElementById("tabla");
+            let datos= async () => (await fetch("https://jsonplaceholder.typicode.com/comments")).json();
+            datos().then((res) => {
+                    res.forEach((val) => {
+                        box.insertAdjacentHTML("beforeend", 
+                        `<tr>
+                            <td>${val.postId}</td>
+                            <td>${val.id}</td>
+                            <td>${val.name}</td>
+                            <td>${val.email}</td>
+                            <td>${val.body}</td>
+                            
+                        </tr>`);
+                    });
+            }).catch((err) =>  {
+                    console.log(err);
+            });
+            
+        </script>
+    </body>
+</html>

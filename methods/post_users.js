@@ -88,6 +88,8 @@ const procesarTodo = (event) => {
             aplicacion.appendChild(pre)
         })
         .catch((error) => console.log(error));
+
 }
 // Agrega evento "submit" al formulario con la función declarada antes.
 formulario.addEventListener("submit", procesarTodo);
+

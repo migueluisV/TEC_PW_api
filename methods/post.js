@@ -50,3 +50,4 @@ const procesarTodo = (event) => {
 }
 // Agrega evento "submit" al formulario.
 formulario.addEventListener("submit", procesarTodo);
+

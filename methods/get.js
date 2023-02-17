@@ -21,12 +21,19 @@ h3.appendChild(document.createTextNode(`Los recursos del Endpoint "${end}" son:`
 aplicacion.appendChild(h3);
 
 // Método que obtiene los resultados del Endpoint.
+
 fetch(ruta)
     .then((respuesta) => { return respuesta.json() })
     .then((datos) => {
-        // Convierte a texto los resultados y lo añade al nodo pre.
-        pre.textContent = JSON.stringify(datos, undefined, 2)
-        // Añade al DOM el nodo pre.
-        aplicacion.appendChild(pre)
-    })
-    .catch((error) => console.log(error));
+       // Convierte a texto los resultados y lo añade al nodo pre.
+       pre.textContent = JSON.stringify(datos, undefined, 2)
+        //Añade al DOM el nodo pre
+       aplicacion.appendChild(pre)
+       aplicacion.forEach((datos) => {
+     
+    });
+   })
+   .catch((error) => console.log(error));
+
+
+         

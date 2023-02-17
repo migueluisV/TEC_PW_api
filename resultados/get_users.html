@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="color.css">
+        <title>GET</title>
+    </head>
+    <body>
+        <table>
+                <caption>Usuarios</caption>
+            <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Usuario</th>
+                    <th>Email</th>
+                    
+            </tr>
+            <tbody id="tabla"></tbody>
+        </table>
+        
+        <script>
+            let box = document.getElementById("tabla");
+            let datos= async () => (await fetch("https://jsonplaceholder.typicode.com/users")).json();
+            datos().then((res) => {
+                    res.forEach((val) => {
+                        box.insertAdjacentHTML("beforeend", 
+                        `<tr>
+                            <td>${val.id}</td>
+                            <td>${val.name}</td>
+                            <td>${val.username}</td>
+                            <td>${val.email}</td>
+                            
+                        </tr>`);
+                    });
+            }).catch((err) =>  {
+                    console.log(err);
+            });
+            
+        </script>
+    </body>
+</html>
