@@ -4,18 +4,28 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="color.css">
+        <link rel="stylesheet" href="../color.css">
         <title>GET</title>
     </head>
     <body>
         <table>
-                <caption>Usuarios</caption>
+            <caption>Users</caption>
             <tr>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Usuario</th>
-                    <th>Email</th>
-                    
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Usuario</th>
+                <th>Email</th> 
+                <th>Calle donde vive</th>   
+                <th>Número exterior de residencia</th>
+                <th>Ciudad donde vive</th>
+                <th>Código postal de vivienda</th>
+                <th>Latitud de geolocalización</th>
+                <th>Longitud de geolocalización</th>
+                <th>Número de teléfono</th>
+                <th>Sitio web</th>
+                <th>Nombre de compañia</th>
+                <th>Eslogan de compañia</th>
+                <th>Enfoque de compañia</th>
             </tr>
             <tbody id="tabla"></tbody>
         </table>
@@ -31,13 +41,22 @@
                             <td>${val.name}</td>
                             <td>${val.username}</td>
                             <td>${val.email}</td>
-                            
+                            <td>${val.address.street}</td>
+                            <td>${val.address.suite}</td>
+                            <td>${val.address.city}</td>
+                            <td>${val.address.zipcode}</td>
+                            <td>${val.address.geo.lat}</td>
+                            <td>${val.address.geo.lng}</td>
+                            <td>${val.phone}</td>
+                            <td>${val.website}</td>
+                            <td>${val.company.name}</td>
+                            <td>${val.company.catchPhrase}</td>
+                            <td>${val.company.bs}</td>
                         </tr>`);
                     });
             }).catch((err) =>  {
                     console.log(err);
             });
-            
         </script>
     </body>
 </html>

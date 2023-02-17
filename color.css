@@ -3,11 +3,15 @@ table{
     margin: 0;
     border: 2px solid black;
     border-collapse: collapse;
-    text-align: center;
+    text-align: left;
     text-transform: capitalize;
 }
 
-table  caption tr th, table tr td{
+table tr th, table tr td{
     padding: 10px;
     border: 2px solid black;
+}
+caption {
+    font-size: x-large;
+    font-weight: bolder;
 }
