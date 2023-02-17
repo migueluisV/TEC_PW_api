@@ -28,7 +28,10 @@
             const metodo = getURL.get("metodo");
             const id = getURL.has("id") ? `/${getURL.get("id")}` : "";
 
+            // Se asigna en la variable box el parametro de la tabla para el cuerpo del contenido
             let box = document.getElementById("tabla");
+            // Se asigna en la variable datos el contenido de la API por medio del fetch
+            // para que se muestre el contenido en la tabla
             let datos= async () => (await fetch(`${API_URL}/${end}${id}`)).json();
             datos().then((res) => {
                     res.forEach((val) => {
