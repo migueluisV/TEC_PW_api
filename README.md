@@ -7,8 +7,7 @@ El objetivo de este pequeño trabajo de sitio web es estudiar y comprender el us
 La API de JSONPlaceholder contiene los **métodos**:
  - GET,
  - POST,
- - PUT,
- - PATCH y
+ - PUT y
  - DELETE.
 
 
@@ -40,6 +39,5 @@ El **directorio** del proyecto consta de:
 - el archivo **index.html**, es la página inicial del sitio, aquí seleccionamos el método a ejecutar, una vez seleccionado, se nos redirecciona al siguiente archivo.
 - el archivo **selecciona_un_endpoint.html**, es la página del sitio donde seleccionamos uno de los Endpoints disponibles en la API, si seleccionamos un Endpoint distinto a *GET*, se nos redirecciona al siguiente archivo.
 - el archivo **selecciona_un_dato.html**, es la página del sitio donde seleccionamos un dato del Endpoint.
-- el archivo**get_selecciona_una_op.html** es la página donde se le pregunta al usuario si desea obtener todos los recursos de la Endpoint o solamente uno, buscándolo mediante el Id del recurso.
 
-En cuanto a la obtención de datos de la API (*GET*), el archivo **get.js** toma los parámetros de la URL para poder recolectar los recursos del Endpoint que seleccionamos previamente. Al contar con Endpoints con distintos campos (propiedades), si buscamos crear o actualizar un recurso, nos encontraremos con el problema de tener que recuperar los datos para crear o actualizar, para solucionar esto, utilizamos los *forms* de HTML, estos formularios son creados en distintos archivos HTML para mayor fácibilidad de mantenimiento, lo mismo ocurre con los formularios para el método *PUT*, *post.js*, *post_user.js*, *put.js* y *put_users.js* se encargan de recuperar los datos de los formularios, convertirlos a JSON y enviarlos a la API.
+En cuanto a la obtención de datos de la API (*GET*), contamos con distintos archivos **get_[endpoint].js**, estos toman los parámetros de la URL para poder recolectar los recursos del Endpoint que seleccionamos previamente. Al contar con Endpoints con distintos campos (propiedades), si buscamos crear o actualizar un recurso, nos encontraremos con el problema de tener que recuperar los datos para crear o actualizar, para solucionar esto, utilizamos los *forms* de HTML, estos formularios son creados en distintos archivos HTML para mayor fácibilidad de mantenimiento, lo mismo ocurre con los formularios para el método *PUT*, *post.js*, *post_user.js*, *put.js* y *put_users.js* se encargan de recuperar los datos de los formularios, convertirlos a JSON y enviarlos a la API.
